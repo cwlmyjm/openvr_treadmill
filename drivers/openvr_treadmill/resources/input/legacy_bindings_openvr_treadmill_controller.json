@@ -20,7 +20,7 @@
 			}]
 		}
 	},
-	"controller_type": "kat_insteam_2.0_controller",
+	"controller_type": "openvr_treadmill_controller",
 	"description": "",
 	"name": "Default bindings for legacy applications for openvr treadmill"
 }
