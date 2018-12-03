@@ -1,0 +1,26 @@
+{
+	"bindings": {
+		"/actions/legacy": {
+			"poses": [],
+			"haptics": [],
+			"sources": [{
+				"path": "/user/treadmill/input/trackpad",
+				"mode": "trackpad",
+				"inputs": {
+					"click": {
+						"output": "/actions/legacy/in/left_axis0_press"
+					},
+					"position": {
+						"output": "/actions/legacy/in/left_axis0_value"
+					},
+					"touch": {
+						"output": "/actions/legacy/in/left_axis0_touch"
+					}
+				}
+			}]
+		}
+	},
+	"controller_type": "kat_insteam_2.0_controller",
+	"description": "",
+	"name": "Default bindings for legacy applications for openvr treadmill"
+}
