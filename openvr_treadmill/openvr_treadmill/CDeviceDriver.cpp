@@ -45,6 +45,8 @@ EVRInitError CDeviceDriver::Activate(uint32_t unObjectId)
 	vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/trackpad/click", &trackpad_click);
 	vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/x", &trackpad_x, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
 	vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/y", &trackpad_y, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
+
+	vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/system/click", &system_click);
 	LOG(INFO) << "CServerProvider::Activate3";
 
 	return EVRInitError::VRInitError_None;
@@ -94,6 +96,8 @@ void CDeviceDriver::SingleLoop()
 
 	vr::VRDriverInput()->UpdateBooleanComponent(trackpad_touch, jss.lbu == 1, 0);
 	vr::VRDriverInput()->UpdateBooleanComponent(trackpad_click, jss.lbd == 1, 0);
+
+	vr::VRDriverInput()->UpdateBooleanComponent(system_click, jss.rbd == 1, 0);
 
 	if (jss.lbd == 1 || jss.lbu == 1)
 	{

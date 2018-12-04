@@ -30,6 +30,8 @@ private:
 	VRInputComponentHandle_t trackpad_x = vr::k_ulInvalidInputComponentHandle;
 	VRInputComponentHandle_t trackpad_y = vr::k_ulInvalidInputComponentHandle;
 
+	VRInputComponentHandle_t system_click = vr::k_ulInvalidInputComponentHandle;
+
 	bool findJoyStick = false;
 };
 

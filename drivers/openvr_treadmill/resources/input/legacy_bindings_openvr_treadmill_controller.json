@@ -4,20 +4,42 @@
 			"poses": [],
 			"haptics": [],
 			"sources": [{
-				"path": "/user/treadmill/input/trackpad",
-				"mode": "trackpad",
-				"inputs": {
-					"click": {
-						"output": "/actions/legacy/in/left_axis0_press"
+					"inputs": {
+						"click": {
+							"output": "/actions/legacy/in/left_system_press"
+						}
 					},
-					"position": {
-						"output": "/actions/legacy/in/left_axis0_value"
+					"mode": "button",
+					"path": "/user/treadmill/input/system"
+				},
+				{
+					"inputs": {
+						"pull": {
+							"output": "/actions/legacy/in/left_axis1_value"
+						},
+						"touch": {
+							"output": "/actions/legacy/in/left_axis1_touch"
+						}
 					},
-					"touch": {
-						"output": "/actions/legacy/in/left_axis0_touch"
-					}
+					"mode": "trigger",
+					"path": "/user/treadmill/input/trigger"
+				},
+				{
+					"inputs": {
+						"click": {
+							"output": "/actions/legacy/in/left_axis0_press"
+						},
+						"position": {
+							"output": "/actions/legacy/in/left_axis0_value"
+						},
+						"touch": {
+							"output": "/actions/legacy/in/left_axis0_touch"
+						}
+					},
+					"mode": "trackpad",
+					"path": "/user/treadmill/input/trackpad"
 				}
-			}]
+			]
 		}
 	},
 	"controller_type": "openvr_treadmill_controller",
