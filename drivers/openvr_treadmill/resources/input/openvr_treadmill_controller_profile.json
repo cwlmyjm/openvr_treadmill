@@ -21,7 +21,7 @@
 		"/input/system": {
 			"binding_image_point": [66, 59],
 			"type": "button",
-			"order": 5
+			"order": 0
 		}
 	}
 }
