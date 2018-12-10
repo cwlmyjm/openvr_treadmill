@@ -41,12 +41,14 @@ EVRInitError CDeviceDriver::Activate(uint32_t unObjectId)
 	properties->SetInt32Property(handle, vr::Prop_ControllerRoleHint_Int32, TrackedControllerRole_Treadmill);
 	
 	LOG(INFO) << "CServerProvider::Activate2";
-	vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/trackpad/touch", &trackpad_touch);
-	vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/trackpad/click", &trackpad_click);
-	vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/x", &trackpad_x, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
-	vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/y", &trackpad_y, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
+	//vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/trackpad/touch", &trackpad_touch);
+	//vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/trackpad/click", &trackpad_click);
+	//vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/x", &trackpad_x, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
+	//vr::VRDriverInput()->CreateScalarComponent(handle, "/input/trackpad/y", &trackpad_y, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
+	//vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/system/click", &system_click);
+	controller = new ControllerWarpper(unObjectId);
+	controller->CreateAllInputComponent();
 
-	vr::VRDriverInput()->CreateBooleanComponent(handle, "/input/system/click", &system_click);
 	LOG(INFO) << "CServerProvider::Activate3";
 
 	return EVRInitError::VRInitError_None;
@@ -94,16 +96,21 @@ void CDeviceDriver::SingleLoop()
 	JoyStickStatus jss;
 	joystick->read(&jss);
 
-	vr::VRDriverInput()->UpdateBooleanComponent(trackpad_touch, jss.lbu == 1, 0);
-	vr::VRDriverInput()->UpdateBooleanComponent(trackpad_click, jss.lbd == 1, 0);
+	controller->UpdateInputTrackpadTouch(jss.lbu == 1);
+	controller->UpdateInputTrackpadClick(jss.lbd == 1);
+	controller->UpdateInputSystemClick(jss.rbd == 1);
 
-	vr::VRDriverInput()->UpdateBooleanComponent(system_click, jss.rbd == 1, 0);
+	//vr::VRDriverInput()->UpdateBooleanComponent(trackpad_touch, jss.lbu == 1, 0);
+	//vr::VRDriverInput()->UpdateBooleanComponent(trackpad_click, jss.lbd == 1, 0);
+	//vr::VRDriverInput()->UpdateBooleanComponent(system_click, jss.rbd == 1, 0);
 
 	if (jss.lbd == 1 || jss.lbu == 1)
 	{
 		float x = (float)jss.lx / 128.0f - 1;
 		float y = (float)jss.ly / 128.0f - 1;
-		vr::VRDriverInput()->UpdateScalarComponent(trackpad_x, x, 0);
-		vr::VRDriverInput()->UpdateScalarComponent(trackpad_y, y, 0);
+		controller->UpdateInputTrackpadX(x, 0);
+		controller->UpdateInputTrackpadY(y, 0);
+		//vr::VRDriverInput()->UpdateScalarComponent(trackpad_x, x, 0);
+		//vr::VRDriverInput()->UpdateScalarComponent(trackpad_y, y, 0);
 	}
 }

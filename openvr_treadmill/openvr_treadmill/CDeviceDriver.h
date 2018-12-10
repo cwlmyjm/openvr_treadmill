@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <openvr_driver.h>
 #include <easylogging++.h>
+#include "ControllerWarpper.h"
 #include "JoyStick.h"
 
 using namespace vr;
@@ -23,14 +24,14 @@ public:
 
 private:
 	PropertyContainerHandle_t handle;
+	ControllerWarpper * controller;
 	JoyStick * joystick;
 
-	VRInputComponentHandle_t trackpad_touch = vr::k_ulInvalidInputComponentHandle;
-	VRInputComponentHandle_t trackpad_click = vr::k_ulInvalidInputComponentHandle;
-	VRInputComponentHandle_t trackpad_x = vr::k_ulInvalidInputComponentHandle;
-	VRInputComponentHandle_t trackpad_y = vr::k_ulInvalidInputComponentHandle;
-
-	VRInputComponentHandle_t system_click = vr::k_ulInvalidInputComponentHandle;
+	//VRInputComponentHandle_t trackpad_touch = vr::k_ulInvalidInputComponentHandle;
+	//VRInputComponentHandle_t trackpad_click = vr::k_ulInvalidInputComponentHandle;
+	//VRInputComponentHandle_t trackpad_x = vr::k_ulInvalidInputComponentHandle;
+	//VRInputComponentHandle_t trackpad_y = vr::k_ulInvalidInputComponentHandle;
+	//VRInputComponentHandle_t system_click = vr::k_ulInvalidInputComponentHandle;
 
 	bool findJoyStick = false;
 };

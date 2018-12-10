@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CDeviceDriver.h" />
+    <ClInclude Include="ControllerWarpper.h" />
     <ClInclude Include="CServerProvider.h" />
     <ClInclude Include="hidapi.h" />
     <ClInclude Include="JoyStick.h" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CDeviceDriver.cpp" />
+    <ClCompile Include="ControllerWarpper.cpp" />
     <ClCompile Include="CServerProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="hidapi.cpp" />
