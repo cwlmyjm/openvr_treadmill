@@ -21,6 +21,21 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CServerProvider.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDeviceDriver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hidapi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JoyStick.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerWarpper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -30,6 +45,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CServerProvider.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CDeviceDriver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hidapi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JoyStick.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllerWarpper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

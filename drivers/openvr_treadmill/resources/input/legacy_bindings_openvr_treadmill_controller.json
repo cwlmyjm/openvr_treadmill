@@ -1,0 +1,39 @@
+{
+	"bindings": {
+		"/actions/legacy": {
+			"poses": [],
+			"haptics": [],
+			"sources": [{
+					"inputs": {
+						"pull": {
+							"output": "/actions/legacy/in/right_axis1_value"
+						},
+						"touch": {
+							"output": "/actions/legacy/in/right_axis1_touch"
+						}
+					},
+					"mode": "trigger",
+					"path": "/user/treadmill/input/trigger"
+				},
+				{
+					"inputs": {
+						"click": {
+							"output": "/actions/legacy/in/right_axis0_press"
+						},
+						"position": {
+							"output": "/actions/legacy/in/right_axis0_value"
+						},
+						"touch": {
+							"output": "/actions/legacy/in/right_axis0_touch"
+						}
+					},
+					"mode": "trackpad",
+					"path": "/user/treadmill/input/trackpad"
+				}
+			]
+		}
+	},
+	"controller_type": "openvr_treadmill_controller",
+	"description": "",
+	"name": "Default bindings for legacy applications for openvr treadmill"
+}

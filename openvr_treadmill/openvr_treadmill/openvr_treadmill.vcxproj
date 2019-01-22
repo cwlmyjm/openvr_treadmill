@@ -112,7 +112,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\third-party\openvr\lib\win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>openvr_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>openvr_api.lib;setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,11 +152,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDeviceDriver.h" />
+    <ClInclude Include="ControllerWarpper.h" />
+    <ClInclude Include="CServerProvider.h" />
+    <ClInclude Include="hidapi.h" />
+    <ClInclude Include="JoyStick.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDeviceDriver.cpp" />
+    <ClCompile Include="ControllerWarpper.cpp" />
+    <ClCompile Include="CServerProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="hidapi.cpp" />
+    <ClCompile Include="JoyStick.cpp" />
     <ClCompile Include="openvr_treadmill.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
